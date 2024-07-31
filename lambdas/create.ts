@@ -27,6 +27,10 @@ export const handler = async (event: any = {}): Promise<any> => {
 
   try {
     await db.put(params)
+    console.log("Create Success; ", {
+      statusCode: 201,
+      body: JSON.stringify(item),
+    })
     return { statusCode: 201, body: JSON.stringify(item) }
   } catch (dbError: any) {
     const errorResponse =

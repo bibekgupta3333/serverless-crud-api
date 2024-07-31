@@ -52,6 +52,10 @@ export const handler = async (event: any = {}): Promise<any> => {
 
   try {
     const response = await db.update(params)
+    console.log("Update Success; ", {
+      statusCode: 200,
+      body: JSON.stringify(response.Attributes),
+    })
     return { statusCode: 200, body: JSON.stringify(response.Attributes) }
   } catch (dbError: any) {
     const errorResponse =
